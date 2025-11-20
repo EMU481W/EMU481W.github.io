@@ -2,57 +2,461 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COSC 481W Software Engineering Projects - 2025 Winter</title>
+    <title>COSC 481W Capstone Showcase & Tech Career Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 2em;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f7fb;
+            color: #1f2933;
+            line-height: 1.6;
         }
-        h1, h2 {
-            color: #2c3e50;
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 16px 48px;
         }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #111827;
+            line-height: 1.3;
+        }
+
+        header p {
+            margin: 4px 0;
+            color: #4b5563;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        /* MAGAZINE LAYOUT */
+        .event-flex {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .poster {
+            width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(15,23,42,0.12);
+            flex-shrink: 0;
+        }
+
+        .event-card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e5e7eb;
+            min-width: 260px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .meta {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .meta strong {
+            color: #111827;
+        }
+
         ul {
-            list-style-type: none;
-            padding-left: 0;
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
-        li {
-            margin-bottom: 1em;
+
+        .section-heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            color: #6b7280;
         }
-        a {
-            color: #2980b9;
+
+        .buttons {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 16px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
         }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
         .note {
-            font-style: italic;
-            color: #555;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 6px;
         }
+
+        footer {
+            margin-top: 32px;
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .poster {
+                width: 100%;
+            }
+        }
+        /* ----- CAROUSEL WRAPPER ----- */
+.carousel-container {
+    position: relative;
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+/* Each slide */
+.carousel-slide {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+    text-align: center;
+
+    /* NEW: consistent height */
+    min-height: 400px;   /* adjust as needed */
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+/* Light slides (Planit, BookBuddy) */
+.light-slide {
+    background: #ffffff;
+    color: #1f2933;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Dark slides (CineMatch, Vybe) */
+.dark-slide {
+    background: #000000;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.dark-slide p,
+.dark-slide h3 {
+    color: #ffffff;
+}
+
+/* Logo images */
+/* Logo container ensures consistency */
+
+/* Logos auto-fit inside the box */
+.carousel-logo {
+    max-width: 100%;
+    max-height: 100%;
+    height: 120px;       /* makes every logo equal space */
+    margin: 0 auto 12px; /* center + spacing */
+    object-fit: contain; /* keeps aspect ratio */
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* or #ffffff if you prefer */
+}
+
+/* Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.carousel-btn:hover {
+    background: #1e4fcc;
+}
+
+.carousel-btn.prev {
+    left: -10px;
+}
+
+.carousel-btn.next {
+    right: -10px;
+}
+
+/* Dots */
+.carousel-dots {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.carousel-dots span {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #d1d5db;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.carousel-dots .active-dot {
+    background-color: #2563eb;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
     </style>
 </head>
+
 <body>
+<div class="page">
 
-    <h1>COSC 481W Software Engineering Projects - 2025 Winter</h1>
-    <p>Welcome! Below is the list of student project links. Explore and enjoy!</p>
+    <header>
+        <div class="badge">Student Showcase & Career Panel</div>
+        <h1>
+            COSC 481W Capstone Showcase<br/>
+            &<br/>
+            Tech Career Panel
+        </h1>
+        <p><strong>Wednesday, December 17</strong> · 1:00 PM – 4:00 PM</p>
+        <p><strong>Strong Hall 100 · Eastern Michigan University</strong></p>
+    </header>
 
-    <h2>Engage</h2>
-    <p><a href="https://ngage.lol/" target="_blank">https://ngage.lol/</a></p>
+    <!-- CAPSTONE SECTION: MAGAZINE LAYOUT -->
+    <div class="event-flex">
+        <img class="poster" src="capstone_showcase.png" alt="Capstone Showcase Poster">
 
-    <h2>Survival Chess</h2>
-    <p><a href="https://survival-chess.netlify.app/" target="_blank">https://survival-chess.netlify.app/</a></p>
+        <section class="event-card">
 
-    <h2>Ript Fitness</h2>
-    <p class="note">Please scan the QR codes provided in the printed program booklet to access the app.</p>
+    <h2>Computer Science Capstone Project Showcase</h2>
+    <div class="meta">
+        <strong>Time:</strong> 1:00 PM – 3:00 PM<br>
+        <strong>Location:</strong> Strong Hall 100<br>
+        <strong>Course:</strong> COSC 481W – Software Engineering Projects
+    </div>
+<div class="section-heading" style="margin-top:28px;">What to expect</div>
+    <ul>
+        <li>Live demos of web and mobile applications</li>
+        <li>Hands-on exploration of student-built apps</li>
+        <li>Talk with developers about design and tech choices</li>
+        <li>Celebrate the accomplishments of senior CS majors</li>
+    </ul>
 
-    <h2>Boiler Room</h2>
-    <p><a href="https://boiler-room-481.onrender.com/" target="_blank">https://boiler-room-481.onrender.com/</a></p>
+    <p>The showcase is <strong>open to the public</strong>. All are welcome.</p>
+        <div class="buttons">
+        <a class="btn btn-primary"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdAX3IuDKvLjUBNg4mrg2iN8hsE7eRml8wRg7JZamjTZ8BUNA/viewform?usp=header"
+            target="_blank">Register</a>
+    </div>
+    <div class="note">Walk-ins welcome.</div>
 
-    <h2>KeepOrDelete</h2>
-    <p><a href="https://cosc481w-2025winter.github.io/KeepOrDelete/" target="_blank">https://cosc481w-2025winter.github.io/KeepOrDelete/</a></p>
+    <!-- ==========================
+         PROJECT CAROUSEL START
+       ========================== -->
+    <div class="carousel-container">
+        <div class="carousel-slide active light-slide">
+            <img class="carousel-logo" src="bookbuddy.png" alt="BookBuddy Logo">
+            <p>
+                Meet <b>BookBuddy</b>! Your first choice for virtual book storage and searching!
+Have you ever wanted to be able to keep track of all of the books you've read and received user catered suggestions for your next read? Then, welcome to BookBuddy!
+Here you can keep track your digital and physical library in one place! Additionally, BookBuddy makes it easy to transfer your old libraries from other applications and integrate it with your new digital storage solution here!
+
+            </p>
+        </div>
+
+        <div class="carousel-slide dark-slide">
+            <img class="carousel-logo" src="cinematch.png" alt="CineMatch Logo">
+            <p>
+                Tired of spending your whole movie night scrolling through options instead of actually watching something? <b>CineMatch</b> learns your tastes by letting you rate movies you’ve seen—and instantly recommends new titles you’ll love. Discover the right movie faster, save favorites for later, and make every movie night effortless and fun!
+            </p>
+        </div>
+
+        <div class="carousel-slide light-slide">
+            <img class="carousel-logo" src="planit.png" alt="Planit Logo">
+            <p>
+                What if planning a trip with friends was actually fun?
+Meet <b>Planit</b>—the travel-itinerary app that turns group chaos into adventure-ready clarity. Explore others trip itineraries for inspiration, create your very own trip itinerary, share with your friends, add activities, and watch your trip come together in real time! No more endless group chats. No more confusion. Just smooth, collaborative trip planning that gets everyone hyped for what’s next.
+            </p>
+        </div>
+
+        <div class="carousel-slide dark-slide">
+            <img class="carousel-logo" src="vybe.png" alt="Vybe Logo">
+            <p>
+                Tired of sending Spotify links to friends who only use YouTube? Stop letting platform barriers kill the music. <b>Vybe</b> bridges the gap between streaming services, allowing you and your friends to create shared groups, view each other’s playlists, and build the ultimate combined soundtrack regardless of where you listen. With features like "Song of the Day" and cross-platform exports, staying on the same wavelength has never been easier. Join us to see how we’re uniting music lovers, one track at a time.
+            </p>
+        </div>
+
+
+        <!-- Carousel Buttons -->
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+
+        <!-- Dots -->
+        <div class="carousel-dots"></div>
+    </div>
+    <!-- ==========================
+         PROJECT CAROUSEL END
+       ========================== -->
+
+</section>
+</div>
+
+
+
+
+    <!-- PANEL SECTION: MAGAZINE LAYOUT -->
+    <div class="event-flex">
+        <img class="poster" src="techpanel.png" alt="Tech Panel Poster">
+
+        <section class="event-card">
+            <h2>Tech Career Panel Discussion</h2>
+            <div class="meta">
+                <strong>Time:</strong> 3:00 PM – 4:00 PM<br>
+                <strong>Location:</strong> Strong Hall 100
+            </div>
+
+            <p>
+                A <strong>tech career panel</strong> featuring Mussa Geyre, Victor Tyler, Bo French, and Randy Kamindo —
+                recent or soon-to-be EMU graduates with offers from <strong>Meta, Amazon, NASA, Honeywell, GE,
+                Atomic Object</strong>, and more.
+            </p>
+
+            <div class="section-heading">Topics we’ll cover</div>
+            <ul>
+                <li>Internships & job search strategies</li>
+                <li>Technical & behavioral interviews</li>
+                <li>Resumes & portfolios</li>
+                <li>Networking & communication</li>
+                <li>Career skill-building</li>
+            </ul>
+
+            <p>
+                Especially valuable for CS students preparing for internships or full-time roles — but all are welcome.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-primary"
+                   href="https://docs.google.com/forms/d/e/1FAIpQLSeH00GWgBR-Nwb3UQ-LUz1iWwihkJbZx2T6mWRFgVA4S_VD8g/viewform?usp=dialog"
+                   target="_blank">Register</a>
+            </div>
+            <div class="note">Walk-ins welcome.</div>
+        </section>
+    </div>
+
+    <footer>
+        Hosted by the Computer Science Department, College of Arts and Sciences,
+        Eastern Michigan University.
+    </footer>
+
+</div>
+<script>
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.querySelector('.carousel-dots');
+
+let current = 0;
+
+/* Create dots */
+slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => showSlide(i));
+    dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('span');
+
+function showSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active-dot');
+
+    current = index;
+
+    slides[current].classList.add('active');
+    dots[current].classList.add('active-dot');
+}
+
+document.querySelector('.carousel-btn.prev')
+    .addEventListener('click', () => showSlide((current - 1 + slides.length) % slides.length));
+
+document.querySelector('.carousel-btn.next')
+    .addEventListener('click', () => showSlide((current + 1) % slides.length));
+
+/* Initialize */
+showSlide(0);
+</script>
 
 </body>
 </html>
